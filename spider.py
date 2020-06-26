@@ -15,7 +15,7 @@ def main():
 
 def main_process_threads():
     processes = []
-    for index in range(4):
+    for index in range(8):
         processes.append(multiprocessing.Process(target=main))
     # for index in range(4):
     #     processes[index].start()
