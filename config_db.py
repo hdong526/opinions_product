@@ -93,8 +93,39 @@ create table yuqing_ls_news(
 
 create unique index index_yuqing_uuid on yuqing_ls_news(uuid)
 '''
-
 DICTDOMAIN = {
+'sina.cn':'手机新浪网',
+'baidu.com':'百度',
+'sohu.com':'搜狐',
+'qq.com':'腾讯',
+'szhome.com':'深圳房地产信息网',
+'sina.com.cn':'新浪网',
+'eastmoney.com':'东方财富网',
+'cfi.net.cn':'中财网',
+'yingjiesheng.com':'应届生求职网',
+'stcn.com':'证券时报网',
+'ifeng.com':'凤凰网',
+'jiemian.com':'界面',
+'hexun.com':'和讯网',
+'cqcb.com':'上游新闻',
+'myzaker.com':'ZAKER',
+'10jqka.com.cn':'同花顺财经',
+'jiemodui.com':'芥末堆',
+'nbd.com.cn':'每日经济新闻',
+'cb.com.cn':'中国经营网',
+'huxiu.com':'虎嗅网',
+'csrc.gov.cn':'中国证监会政府网站',
+'thepaper.cn':'澎湃新闻',
+'chinastock.com.cn':'中国银河证券',
+'southmoney.com':'南方财富网',
+'yicai.com':'第一财经',
+'china.com.cn':'中国网',
+'yuncaijing.com':'云财经网',
+'cnstock.com':'上海证券报',
+'163.com':'网易',
+'caijing.com.cn':'财经网'}
+
+DICTDOMAIN_2 = {
 'cfi.net.cn':'中财网',
 'cfi.cn':'中财网',
 'dmkb.net':'电鳗快报',

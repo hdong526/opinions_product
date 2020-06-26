@@ -12,15 +12,20 @@ class CreateTasks(object):
         self.db_redis.delete(REDIS_KEY_TASKS)
 
         df_ent = self.db_orcl.select_table(ORACLE_TABLE_ENTOUTED, '')
-        list_enterprise = list(df_ent['ENTNAME_GLLZD'])
+        list_g = list(df_ent['ENTNAME_GLLZD'])
+        list_e = list(df_ent['ENAME'])
+        list_b= list(df_ent['NAME_BEFORE'])
+        list_enterprise = list(set(list_g + list_e + list_b))
+        #print(list_enterprise)
         df_words = self.db_orcl.select_table(ORACLE_TABLE_KEYWORDS, '')
         list_words = list(df_words['WORD'])
 
         for domain in DICTDOMAIN:
             for ename in list_enterprise:
                 for word in list_words[0:5]:
-                    task = ename.strip() + ' ' + word.strip() + SPLIT_SYMBOL + domain + SPLIT_SYMBOL + DICTDOMAIN[domain]
-                    self.db_redis.tasks_add(REDIS_KEY_TASKS, task)
+                    if ename.strip():
+                        task = ename.strip() + ' ' + word.strip() + SPLIT_SYMBOL + domain + SPLIT_SYMBOL + DICTDOMAIN[domain]
+                        self.db_redis.tasks_add(REDIS_KEY_TASKS, task)
 
     def createTestTasks(self):
         self.db_redis.delete(REDIS_KEY_TASKS)
