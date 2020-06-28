@@ -18,10 +18,12 @@ class CreateTasks(object):
         list_e = list(df_ent['ENAME'])
         list_b= list(df_ent['NAME_BEFORE'])
         list_enterprise = list(set(list_g + list_e + list_b))
-        #print(list_enterprise)
+
+        print(len(list_enterprise), '企业数')
         df_words = self.db_orcl.select_table(ORACLE_TABLE_KEYWORDS, '')
         list_words = list(df_words['WORD'])
 
+        print(len(DICTDOMAIN), '域名数')
         # for domain in DICTDOMAIN:
         #     for ename in list_enterprise:
         #         for word in list_words:
