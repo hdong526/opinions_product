@@ -1,4 +1,5 @@
 import re
+import datetime
 from urllib import parse
 
 from lxml import etree
@@ -43,6 +44,7 @@ class Parse(object):
 
                 detail_url = each_div_selector.xpath('//h3/a/@href')[0]
 
+                str_spider_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
                 # dict_info = {
                 #     'title': title,
                 #     'str_time': str_time,
@@ -52,7 +54,8 @@ class Parse(object):
                 #     'domain':domain,
                 # }
                 #if '香港' in title:
-                str_info = detail_url + SPLIT_SYMBOL + qymc + SPLIT_SYMBOL + domain + SPLIT_SYMBOL + str_time
+                # str_info = detail_url + SPLIT_SYMBOL + qymc + SPLIT_SYMBOL + domain + SPLIT_SYMBOL + str_time
+                str_info = SPLIT_SYMBOL.join([detail_url,qymc,domain,str_time,str_spider_time])
                 print(title,str_time,str_word,qymc)
                 r_db.tasks_add(REDIS_KEY_DETAIL, str_info)
 
@@ -75,22 +78,25 @@ class Parse(object):
                 r_db.tasks_add(REDIS_KEY_BAIDU_OTHER, str_info)
 
     def parse_detail_content(self, text):
-        extractor = GeneralNewsExtractor()
-        result = extractor.extract(text)
-        #print(result)
-        title = result['title']
-        content = result['content']
-        stime = result['publish_time']
-        # try:
-        #     list_word = re.findall(self.l_content_word, title + content)
-        #     word = '_'.join(list(set(list_word)))
-        # except:
-        #     word = ''
-        content = re.sub(u'[\U00010000-\U0010ffff]', '', content)  ##去除四个字符的表情
-        title = re.sub(u'[\U00010000-\U0010ffff]', '', title)  ##去除四个字符的表情
-        content = re.sub(str_error_char, '', content.strip())
-        title = re.sub(str_error_char, '', title.strip())
-        return title, stime, content
+        try:
+            extractor = GeneralNewsExtractor()
+            result = extractor.extract(text)
+            #print(result)
+            title = result['title']
+            content = result['content']
+            stime = result['publish_time']
+            # try:
+            #     list_word = re.findall(self.l_content_word, title + content)
+            #     word = '_'.join(list(set(list_word)))
+            # except:
+            #     word = ''
+            content = re.sub(u'[\U00010000-\U0010ffff]', '', content)  ##去除四个字符的表情
+            title = re.sub(u'[\U00010000-\U0010ffff]', '', title)  ##去除四个字符的表情
+            content = re.sub(str_error_char, '', content.strip())
+            title = re.sub(str_error_char, '', title.strip())
+            return title, stime, content
+        except Exception as e:
+            print(str(e), 'parse_detail_content')
     #
     # def parse_detail_content(self, text, domain, xpath_title, xpath_content):
     #     try:

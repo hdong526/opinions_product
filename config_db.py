@@ -68,6 +68,25 @@ create table yuqing_keywords(
 )
 '''
 
+str_create_yuqing_domain = '''
+    create table yuqing_domain(
+       domain varchar(1000),
+       domain_name varchar(1000),
+       flag varchar(10),
+       c0001 varchar(4000),
+       c0002 varchar(4000),
+       c0003 varchar(4000),
+       c0004 varchar(4000),
+       c0005 varchar(4000),
+       c0006 varchar(4000)
+       
+);
+
+comment on column yuqing_domain.domain is '域名';
+comment on column yuqing_domain.domain_name is '网站名';
+comment on column yuqing_domain.flag is '搜索中是否指定启用';
+'''
+
 str_create_yuqing_ls_news = '''
 create table yuqing_ls_news(
        uuid varchar(100) default SYS_GUID() not null,

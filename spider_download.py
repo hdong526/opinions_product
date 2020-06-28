@@ -30,11 +30,20 @@ class Download(object):
                     word = list_info[0]
                     s_word = word.strip()
                     search_word = parse.quote(s_word)
-
-                    url = 'https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=ed1f0e1000122fc3&ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&rsv_pq=b3d3a5f6000c1e98&rsv_t=9d9aaIBWL7oiDuaCOGeHUtJmlDgv1r1QtzBMLbYGnOJ2W28JJeQ6naFPhqs&rqlang=cn&inputT=9924&si={}&ct=2097152&bs={}'.format(
-                        search_word, domain, search_word)
+                    if domain.strip():
+                        url = 'https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=ed1f0e1000122fc3&ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&rsv_pq=b3d3a5f6000c1e98&rsv_t=9d9aaIBWL7oiDuaCOGeHUtJmlDgv1r1QtzBMLbYGnOJ2W28JJeQ6naFPhqs&rqlang=cn&inputT=9924&si={}&ct=2097152&bs={}'.format(
+                            search_word, domain, search_word)
+                    else:
+                        url = 'https://www.baidu.com/s?ie=utf-8&newi=1&mod=1&isbd=1&isid=C663CB5239C33121&wd={}&rsv_spt=1&rsv_iqid=0xac699ad0000c4b6a&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_dl=ib&rsv_sug3=2&rsv_sid=1466_31325_21083_32140_31254_32046_31848_22160&_ss=1&clist=&hsug=&csor=13&pstg=2&_cr1=27662'.format(
+                            search_word
+                        )
                     #ele = ClassRequest(url, domain, headers=HEADERS_BAIDU)
                     ele = ClassRequest(url, domain, headers=HEADERS_BAIDU_2)
+                    qymc = s_word.split(' ')[0]
+                    if len(s_word.split(' ')) == 2:
+                        key_w = s_word.split(' ')[1]
+                    else:
+                        key_w = ''
                     try:
                         resp = self.session.send(ele.prepare(), timeout=ele.timeout)
                         resp.encoding = 'utf8'
@@ -42,8 +51,8 @@ class Download(object):
                             resp.text,
                             domain,
                             self.dbRedis,
-                            s_word.split(' ')[1],
-                            s_word.split(' ')[0]
+                            key_w,
+                            qymc
                         )
                     except (ConnectionError, ReadTimeout) as e:
                         print(e.args, '##############')
@@ -70,10 +79,12 @@ class Download(object):
                         self.dbRedis.tasks_add(REDIS_KEY_BAIDU_OTHER, list_info)
                 elif task_type == 'detail_content':
                     #http://www.baidu.com/link?url=ZFo---P_siV1CZ6GgMCNF-JoZ1kwca-z-47XbRapCoaF5OiAmhC4Nk3CGXDHHlnib-klhD2gQ9p2mGeAcoqHqo1W1fmoD99T98G6kupPQW-V-1a1v8K1q7kumtypHIli@@@@北京眼神科技有限公司@@@@sina.com.cn
+                    #print(list_info)
                     long_url = list_info[0]
                     qymc = list_info[1]
                     domain = list_info[2]
                     btime =  list_info[3]
+                    spider_listpage_time = list_info[4]
                     try:
                         resp = requests.get(long_url, headers=HEADERS_COMMON, timeout=LIMIT_TIMEOUT)
                         url = resp.url
@@ -92,20 +103,22 @@ class Download(object):
                                 'domain': domain,
                                 'ename': qymc,
                                 'btime': btime,
+                                'c0001': spider_listpage_time,
                             }
                             if not self.dbRedis.duplicate_exit(REDIS_KEY_DETAIL_URLS, url):
                                 self.dbRedis.duplicate_add(REDIS_KEY_DETAIL_URLS, url)
                                 self.dbOracle.insert_one_data(ORACLE_TABLE_NEWS, **dict_info)
 
                     except (ConnectionError, ReadTimeout) as e:
-                        pass
-                        # print(e.args, '##############')
+                        #pass
+                        print(e.args, '##############',task_info)
                         #self.dbRedis.tasks_add(REDIS_KEY_DETAIL, list_info)
 
                 else:
                     pass
-        except:
-            pass
+        except Exception as e:
+            print(str(e), '33333333333333333333333', task_info)
+            #pass
 
 if __name__ == '__main__':
     db_redis = db_redis.RedisQueue()

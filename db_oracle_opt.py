@@ -20,6 +20,14 @@ class OracleEngine(OracleBase):
         #print(str_sql)
         self.opt_sql(str_sql, list_values)
 
+    def func_insert_df(self, data, table):
+        dict_info = data.to_dict()
+        self.insert_one_data(table, **dict_info)
+
+    def insert_DataFrame(self, table, df):
+        df.apply(self.func_insert_df, axis=1, args=(table, ))
+
+
     def clear_table(self, table):
         str_sql = 'delete from {}'.format(table)
         self.opt_sql(str_sql)
@@ -46,6 +54,8 @@ class OracleEngine(OracleBase):
 
 if __name__ == '__main__':
     db = OracleEngine('h_dong', 'h_dong', '192.168.1.107:1521/orcl')
+
+    #print(DICTDOMAIN_2)
 ##    db.insert_one_data('temp_emp',
 ##        **{
 ##            'ename': 'd',
