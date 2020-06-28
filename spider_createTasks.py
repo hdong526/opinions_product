@@ -36,7 +36,8 @@ class CreateTasks(object):
         #             task = ename.strip() + ' ' + word.strip() + SPLIT_SYMBOL + ' ' + SPLIT_SYMBOL + ' '
         #             self.db_redis.tasks_add(REDIS_KEY_TASKS, task)
 
-        for domain in DICTDOMAIN:
+        #for domain in DICTDOMAIN:
+        for domain in DICTDOMAIN_2:
             for ename in list_enterprise:
                 if ename.strip():
                     task = ename.strip() + SPLIT_SYMBOL + domain + SPLIT_SYMBOL + DICTDOMAIN[domain]
