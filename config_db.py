@@ -18,10 +18,15 @@ ORACLE_ADDR = '192.168.50.2:1521/orcl'
 
 # 已经迁出企业表
 ORACLE_TABLE_ENTOUTED = 'yuqing_enterprise_outed'
+
+ORACLE_TABLE_ENTOUTED = 'yuqing_enterprise_bj'
 # 关键词表
 ORACLE_TABLE_KEYWORDS = 'yuqing_keywords'
 # 存入新闻数据表
 ORACLE_TABLE_NEWS = 'yuqing_ls_news'
+
+# 域名表
+ORACLE_TABLE_DOMAIN = 'yuqing_domain'
 
 
 
@@ -37,6 +42,8 @@ REDIS_KEY_BAIDU_OTHER = 'yuqing_baidu_otherpage'
 
 # 去重库
 REDIS_KEY_DETAIL_URLS = 'yuqing_detail_urls'
+
+
 
 
 str_create_yuqing_enterprise_outed = '''
@@ -55,6 +62,19 @@ create table yuqing_enterprise_outed(
 )
 '''
 
+str_create_yuqing_enterprise_bj = '''
+create table yuqing_enterprise_bj(
+       ename varchar(300),
+       entname varchar(300),
+       entname_gllzd varchar(300),
+       name_before varchar(300),
+       change_date varchar(100),
+       c0001 varchar(1000),
+       c0002 varchar(1000),
+       c0003 varchar(1000),
+       c0004 varchar(1000)
+)
+'''
 str_create_yuqing_keywords = '''
 create table yuqing_keywords(
        word varchar(500),
