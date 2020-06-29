@@ -17,13 +17,15 @@ ORACLE_PASSWORD = 'sjzy_dev'
 ORACLE_ADDR = '192.168.50.2:1521/orcl'
 
 # 已经迁出企业表
-ORACLE_TABLE_ENTOUTED = 'yuqing_enterprise_outed'
+#ORACLE_TABLE_ENTOUTED = 'yuqing_enterprise_outed'
 
 ORACLE_TABLE_ENTOUTED = 'yuqing_enterprise_bj'
 # 关键词表
 ORACLE_TABLE_KEYWORDS = 'yuqing_keywords'
 # 存入新闻数据表
-ORACLE_TABLE_NEWS = 'yuqing_ls_news'
+# ORACLE_TABLE_NEWS = 'yuqing_ls_news'
+
+ORACLE_TABLE_NEWS = 'yuqing_ls_news_bj'
 
 # 域名表
 ORACLE_TABLE_DOMAIN = 'yuqing_domain'
@@ -133,6 +135,9 @@ create table yuqing_ls_news(
 
 create unique index index_yuqing_uuid on yuqing_ls_news(uuid)
 '''
+'create unique index index_yuqing_bj_uuid on yuqing_ls_news_bj(uuid)'
+'create unique index ls_index_yuqing_uuid on ls_data.yuqing_ls_news(uuid)'
+
 DICTDOMAIN = {
 'sina.cn':'手机新浪网',
 'baidu.com':'百度',
