@@ -41,7 +41,8 @@ REDIS_KEY_DETAIL = 'yuqing_detail_page'
 REDIS_KEY_BAIDU_OTHER = 'yuqing_baidu_otherpage'
 
 # 去重库
-REDIS_KEY_DETAIL_URLS = 'yuqing_detail_urls'
+#REDIS_KEY_DETAIL_URLS = 'yuqing_detail_urls'
+REDIS_KEY_DETAIL_URLS = 'yuqing_detail_urls_bj'
 
 
 
