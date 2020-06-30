@@ -32,7 +32,7 @@ class CreateTasks(object):
         ## 测试
         # list_enterprise = ['北京眼神科技有限公司']
         # list_words = ['雄安']
-        str_sql = '''select t1.domain,domain_name from (select * from (select domain,count(domain) t from yuqing_ls_news where domain != ' ' group by domain order by t desc) where rownum < 101 ) t1
+        str_sql = '''select t1.domain,domain_name from (select * from (select domain,count(domain) t from yuqing_ls_news where domain != ' ' group by domain order by t desc) where rownum < 31 ) t1
 left join yuqing_domain t2 on t1.domain = t2.domain'''
         df_domain = self.db_orcl.get_DataFrame(str_sql)
         dictdomain = df_domain.set_index('DOMAIN')['DOMAIN_NAME'].to_dict()
