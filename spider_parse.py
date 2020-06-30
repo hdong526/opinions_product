@@ -64,7 +64,8 @@ class Parse(object):
                 continue
 
         if bool_first:
-            list_url = select.xpath('//div[@id="page"]/a/@href')[:-1]
+            list_url = select.xpath('//div[@id="page"]/div[@class="page-inner"]/a/@href')[:-1]
+            print(len(list_url), '############')
             for i in list_url:
                 url = parse.urljoin('https://www.baidu.com', i)
                 #print(url)

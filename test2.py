@@ -34,21 +34,21 @@ HEADERS_BAIDU = {
     'Connection':'keep-alive',
     #'Cookie': 'BDUSS=llWdXNLem5RY2YzYn5nNn44d0NKNzFPYXE4ZmJsbVpxOXFURnJ3UEpkSWtGYlZlRVFBQUFBJCQAAAAAAAAAAAEAAAA3NPQPaGRvbmc1MjYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACSIjV4kiI1eR;',
     #'Cookie': 'BAIDUID=C663CB5D40080C542C408ADB6F85239C:FG=1;BDUSS=2dZZkw4eTlmRmhYNGkwS0lyekE2WUdXWG84UC1WT2Q2amNxbm9jdmZ4cmh-eE5mRVFBQUFBJCQAAAAAAAAAAAEAAAA3NPQPaGRvbmc1MjYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOFy7F7hcuxea;',
-    #'Cookie':  'BAIDUID=B6A727FAE6EB76758E7FD155AB73230B:FG=1;',
-    'Cookie':  'BAIDUID=C663CB5D40080C542C408ADB6F85239C:FG=1;BDUSS=2dZZkw4eTlmRmhYNGkwS0lyekE2WUdXWG84UC1WT2Q2amNxbm9jdmZ4cmh-eE5mRVFBQUFBJCQAAAAAAAAAAAEAAAA3NPQPaGRvbmc1MjYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOFy7F7hcuxea;',
+    'Cookie':  'BAIDUID=B6A727FAE6EB76758E7FD155AB73230B:FG=1;',
     #'Cookie':  'BAIDUID=C663CB5D40080C542C408ADB6F85239C:FG=1;BDUSS=2dZZkw4eTlmRmhYNGkwS0lyekE2WUdXWG84UC1WT2Q2amNxbm9jdmZ4cmh-eE5mRVFBQUFBJCQAAAAAAAAAAAEAAAA3NPQPaGRvbmc1MjYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOFy7F7hcuxea;',
-
+    #'Cookie':  'BAIDUID=C663CB5D40080C542C408ADB6F85239C:FG=1;BDUSS=2dZZkw4eTlmRmhYNGkwS0lyekE2WUdXWG84UC1WT2Q2amNxbm9jdmZ4cmh-eE5mRVFBQUFBJCQAAAAAAAAAAAEAAAA3NPQPaGRvbmc1MjYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOFy7F7hcuxea;',
+    #'Cookie':'BAIDUID=C663CB5D40080C542C408ADB6F85239C:FG=1;',
 }
 
 url = 'https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=ed1f0e1000122fc3&ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&rsv_pq=b3d3a5f6000c1e98&rsv_t=9d9aaIBWL7oiDuaCOGeHUtJmlDgv1r1QtzBMLbYGnOJ2W28JJeQ6naFPhqs&rqlang=cn&inputT=9924&si={}&ct=2097152&bs={}'.format(
     search_word, domain, search_word)
-url = 'https://www.baidu.com/s?ie=utf-8&newi=1&mod=1&isbd=1&isid=C663CB5239C33121&wd={}&rsv_spt=1&rsv_iqid=0xac699ad0000c4b6a&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_dl=ib&rsv_sug3=2&rsv_sid=1466_31325_21083_32140_31254_32046_31848_22160&_ss=1&clist=&hsug=&csor=13&pstg=2&_cr1=27662'.format(
-    search_word
-)
+# url = 'https://www.baidu.com/s?ie=utf-8&newi=1&mod=1&isbd=1&isid=C663CB5239C33121&wd={}&rsv_spt=1&rsv_iqid=0xac699ad0000c4b6a&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_dl=ib&rsv_sug3=2&rsv_sid=1466_31325_21083_32140_31254_32046_31848_22160&_ss=1&clist=&hsug=&csor=13&pstg=2&_cr1=27662'.format(
+#     search_word
+# )
 #url = 'https://www.baidu.com/s?wd=%E5%8C%97%E4%BA%AC%E7%9C%BC%E7%A5%9E%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%20%E9%9B%84%E5%AE%89&pn=20&oq=%E5%8C%97%E4%BA%AC%E7%9C%BC%E7%A5%9E%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%20%E9%9B%84%E5%AE%89&ct=2097152&ie=utf-8&si=sina.com.cn'
 resp = requests.get(url, headers=HEADERS_BAIDU)
 resp.encoding = 'utf8'
-#print(resp.text)
+print(resp.text)
 select = etree.HTML(resp.text.replace('&nbsp;', ''))
 div_list = select.xpath('//div[@id="content_left"]/div')
 for each_div in div_list:
@@ -57,4 +57,7 @@ for each_div in div_list:
     titles = each_div_selector.xpath('//h3/a//text()')
     title = ''.join(titles).split('-')[0]
     print(title)
+
+list_url = select.xpath('//div[@id="page"]/div[@class="page-inner"]/a/@href')[:-1]
+print(len(list_url), '############')
 

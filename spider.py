@@ -9,7 +9,7 @@ import  spider_createTasks
 
 def main():
     warnings.filterwarnings('ignore')
-    list_thread_1 = [ThreadSpider() for i in range(4)]
+    list_thread_1 = [ThreadSpider() for i in range(8)]
     [thread.start() for thread in list_thread_1]
     [thread.join() for thread in list_thread_1]
 
