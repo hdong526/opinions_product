@@ -130,8 +130,8 @@ create table yuqing_ls_news(
        c0005 varchar(4000),
        c0006 varchar(4000),
        c0007 varchar(4000),
-       c0008 varchar(4000),
-       c0009 varchar(4000)
+       c0008 clob,
+       c0009 clob
 );
 
 create unique index index_yuqing_uuid on yuqing_ls_news(uuid)

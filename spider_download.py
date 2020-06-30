@@ -106,8 +106,8 @@ class Download(object):
                                 'c0001': spider_listpage_time,
                             }
                             if not self.dbRedis.duplicate_exit(REDIS_KEY_DETAIL_URLS, url):
-                                self.dbRedis.duplicate_add(REDIS_KEY_DETAIL_URLS, url)
                                 self.dbOracle.insert_one_data(ORACLE_TABLE_NEWS, **dict_info)
+                                self.dbRedis.duplicate_add(REDIS_KEY_DETAIL_URLS, url)
 
                     except (ConnectionError, ReadTimeout) as e:
                         #pass

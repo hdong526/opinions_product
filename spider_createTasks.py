@@ -22,7 +22,7 @@ class CreateTasks(object):
         list_ent = list(df_ent['ENTNAME'])
         list_g = list(df_ent['ENTNAME_GLLZD'])
         list_b = list(df_ent['NAME_BEFORE'])
-        list_enterprise = list(set(list_g + list_e + list_b + list_ent))[:50]
+        list_enterprise = list(set(list_g + list_e + list_b + list_ent))[50:]
         #print(list_enterprise)
         print(len(list_enterprise), '企业数')
 
