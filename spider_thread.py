@@ -17,6 +17,8 @@ class ThreadSpider(Thread):
     def run(self):
         while True:
             try:
+                # bool_taskType1 = True
+                # bool_taskType2 = True
                 bool_taskType1 = self.dbRedis.tasks_empty(REDIS_KEY_TASKS)
                 bool_taskType2 = self.dbRedis.tasks_empty(REDIS_KEY_BAIDU_OTHER)
                 bool_taskType3 = self.dbRedis.tasks_empty(REDIS_KEY_DETAIL)
