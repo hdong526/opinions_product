@@ -13,10 +13,28 @@
 # print(result)
 
 
-import datetime
+# import datetime
+#
+# a = datetime.datetime.now()
+# print(a, type(a))
+#
+# str1 = a.strftime('%Y-%m-%d %H:%M')
+# print(str1)
 
-a = datetime.datetime.now()
-print(a, type(a))
+import sys
+import getopt
 
-str1 = a.strftime('%Y-%m-%d %H:%M')
-print(str1)
+if len(sys.argv) > 1:
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "t:")
+        for opt, arg in opts:
+            if opt == '-t':
+                if arg == 'add':
+                    bool_add = True
+                    print('增量抓取类型爬虫')
+                    sys.exit()
+                else:
+                    print('命令错误')
+    except getopt.GetoptError:
+        print('位置参数错误')
+

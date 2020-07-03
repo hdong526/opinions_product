@@ -7,12 +7,13 @@ import db_redis
 import db_oracle_opt
 
 class ThreadSpider(Thread):
-    def __init__(self,):
+    def __init__(self,b_spider_add):
         Thread.__init__(self)
         self.daemon = False
         self.dbRedis = db_redis.RedisQueue()
         self.dbOracle = db_oracle_opt.OracleEngine()
-        self.download = spider_download.Download(self.dbRedis, self.dbOracle)
+        self.download = spider_download.Download(self.dbRedis, self.dbOracle, b_spider_add)
+
 
     def run(self):
         while True:

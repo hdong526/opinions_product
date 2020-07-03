@@ -32,8 +32,9 @@ class CreateTasks(object):
         ## 测试
         # list_enterprise = ['北京眼神科技有限公司']
         # list_words = ['雄安']
-        str_sql = '''select t1.domain,domain_name from (select * from (select domain,count(domain) t from yuqing_ls_news where domain != ' ' group by domain order by t desc) where rownum < 31 ) t1
-left join yuqing_domain t2 on t1.domain = t2.domain'''
+#         str_sql = '''select t1.domain,domain_name from (select * from (select domain,count(domain) t from yuqing_ls_news where domain != ' ' group by domain order by t desc) where rownum < 31 ) t1
+# left join yuqing_domain t2 on t1.domain = t2.domain'''
+        str_sql = 'select domain,domain_name from yuqing_domain where flag=1 or c0001=1'
         df_domain = self.db_orcl.get_DataFrame(str_sql)
         dictdomain = df_domain.set_index('DOMAIN')['DOMAIN_NAME'].to_dict()
         #print(dictdomain)
@@ -44,10 +45,11 @@ left join yuqing_domain t2 on t1.domain = t2.domain'''
         #
         # df_domain = self.db_orcl.select_table('yuqing_domain', 'flag=1')[['DOMAIN', 'DOMAIN_NAME']]
         # dictdomain = df_domain.set_index('DOMAIN')['DOMAIN_NAME'].to_dict()
-        df_domain_2 = self.db_orcl.select_table('yuqing_domain', '')[['DOMAIN', 'DOMAIN_NAME']]
+        df_domain_2 = self.db_orcl.select_table('yuqing_domain', 'c0002=1')[['DOMAIN', 'DOMAIN_NAME']]
         dictdomain_2 = df_domain_2.set_index('DOMAIN')['DOMAIN_NAME'].to_dict()
         #
         #
+
         for domain in dictdomain:
             for ename in list_enterprise:
                 for word in list_words:
