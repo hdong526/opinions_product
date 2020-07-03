@@ -49,6 +49,10 @@ class CreateTasks(object):
         dictdomain_2 = df_domain_2.set_index('DOMAIN')['DOMAIN_NAME'].to_dict()
         #
         #
+        print('dictdomain', len(dictdomain))
+        print('list_enterprise', len(list_enterprise))
+        print('word', len(list_words))
+        print('dictdomain_2', len(dictdomain_2))
 
         for domain in dictdomain:
             for ename in list_enterprise:
