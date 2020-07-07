@@ -101,20 +101,27 @@ class Download(object):
                         if not self.dbRedis.duplicate_exit(REDIS_KEY_DETAIL_URLS, url):
                             cs = chardet.detect(resp.content)
                             resp.encoding = cs['encoding']
-
-                            title, sctime, content = self.html_parse.parse_detail_content(
-                                resp.text
-                            )
                             dict_info = {
                                 'url': url,
-                                'title': title,
-                                'content': content,
-                                'ctime': sctime,
+                                'content': resp.text,
                                 'domain': domain,
                                 'ename': qymc,
                                 'btime': btime,
                                 'c0001': spider_listpage_time,
                             }
+                            # title, sctime, content = self.html_parse.parse_detail_content(
+                            #     resp.text
+                            # )
+                            # dict_info = {
+                            #     'url': url,
+                            #     'title': title,
+                            #     'content': content,
+                            #     'ctime': sctime,
+                            #     'domain': domain,
+                            #     'ename': qymc,
+                            #     'btime': btime,
+                            #     'c0001': spider_listpage_time,
+                            # }
                             if not self.dbRedis.duplicate_exit(REDIS_KEY_DETAIL_URLS, url):
                                 self.dbOracle.insert_one_data(ORACLE_TABLE_NEWS, **dict_info)
                                 self.dbRedis.duplicate_add(REDIS_KEY_DETAIL_URLS, url)
