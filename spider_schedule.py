@@ -22,7 +22,7 @@ def job_spider_task():
 
 
 def run():
-    schedule.every().day.at("17:20").do(job_spider_task)
+    schedule.every().day.at("17:30").do(job_spider_task)
     schedule.every().day.at("18:00").do(job_spider_task)
     while True:
         schedule.run_pending()
