@@ -31,7 +31,7 @@ def main_process_threads(b_spider_add, bool_spider_detail):
     [process.start() for process in processes]
     [process.join() for process in processes]
 
-if __name__ == '__main__':
+def main_spider():
     warnings.filterwarnings('ignore')
 
     start = datetime.datetime.now()
@@ -64,12 +64,15 @@ if __name__ == '__main__':
         c = spider_createTasks.CreateTasks()
         c.createSearchTasks()
 
-    #main()
+    # main()
     main_process_threads(bool_add, bool_detail)
 
     end = datetime.datetime.now()
     print('结束时间{}'.format(end))
     print('耗时{}'.format(str(end - start)))
+
+if __name__ == '__main__':
+    main_spider()
 
 
 #约1小时，去重321，总量451
