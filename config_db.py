@@ -139,6 +139,15 @@ create unique index index_yuqing_uuid on yuqing_ls_news(uuid)
 'create unique index index_yuqing_bj_uuid on yuqing_ls_news_bj(uuid)'
 'create unique index ls_index_yuqing_uuid on ls_data.yuqing_ls_news(uuid)'
 
+
+# 查询每天增量采集的数量统计sql语句，先去重留最早采集的一条
+'''
+select to_char(gtime, 'YYYY-MM-DD') as 天,sum(1) as 数量 from 
+(select * from (select gtime,row_number() over(partition by url order by gtime) rn from yuqing_ls_news_bj)  where rn =1)
+group by  to_char(gtime, 'YYYY-MM-DD')
+order by 天
+'''
+
 DICTDOMAIN = {
 'sina.cn':'手机新浪网',
 'baidu.com':'百度',

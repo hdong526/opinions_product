@@ -1,6 +1,7 @@
 import datetime
 
-
+NUM_PROCESS = 4
+NUM_THREAD = 8
 
 SPLIT_SYMBOL = '@@@@'
 LIMIT_DATE = datetime.datetime.strptime('2017-01-01','%Y-%m-%d')
