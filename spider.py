@@ -71,6 +71,48 @@ def main_spider():
     print('结束时间{}'.format(end))
     print('耗时{}'.format(str(end - start)))
 
+
+def main_spider_schedule(bool_add=False, bool_detail = False):
+    warnings.filterwarnings('ignore')
+
+    start = datetime.datetime.now()
+    print('开始时间{}'.format(start))
+
+    # bool_add = False
+    # bool_detail = False
+    # if len(sys.argv) > 1:
+    #     try:
+    #         opts, args = getopt.getopt(sys.argv[1:], "t:u:")
+    #         for opt, arg in opts:
+    #             if opt == '-t':
+    #                 if arg == 'add':
+    #                     bool_add = True
+    #                     print('增量抓取类型爬虫')
+    #                 else:
+    #                     print('t命令参数错误')
+    #             elif opt == '-u':
+    #                 if arg == 'detail':
+    #                     bool_detail = True
+    #                     print('详情页抓取')
+    #                 else:
+    #                     print('u命令参数错误')
+    #             else:
+    #                 pass
+    #     except getopt.GetoptError:
+    #         print('位置参数错误')
+
+    if not bool_detail:
+        c = spider_createTasks.CreateTasks()
+        c.createSearchTasks()
+
+    # main()
+    main_process_threads(bool_add, bool_detail)
+
+    end = datetime.datetime.now()
+    print('结束时间{}'.format(end))
+    print('耗时{}'.format(str(end - start)))
+
+
 if __name__ == '__main__':
     main_spider()
 

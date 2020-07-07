@@ -6,7 +6,7 @@ import spider
 
 def job_spider():
     print('spider working')
-    spider.main_spider()
+    spider.main_spider_schedule(bool_add=True)
 
 # def job2():
 # 	print('i am working for job2')
