@@ -1,0 +1,35 @@
+1、编写开机启动脚本
+	vi huangdong/code/exeSH/spider.sh
+虚拟机中的脚本
+#!/bin/bash
+screen_name=$"spider_bj"
+screen -dmS $screen_name
+
+cmd_spider=$"python3 /root/huangdong/code/opinions_product/spider.py -u detail"
+screen -x -S $screen_name -p 0 -X stuff "$cmd_spider"
+screen -x -S $screen_name -p 0 -X stuff $'\n'
+
+实体机中的脚本
+#!/bin/bash
+screen_name=$"spider_bj"
+screen -dmS $screen_name
+
+cmd_spider=$"python3 /root/huangdong/code/opinions_product/spider.py -u detail"
+screen -x -S $screen_name -p 0 -X stuff "$cmd_spider"
+screen -x -S $screen_name -p 0 -X stuff $'\n'
+
+2、添加脚本运行权限
+chmod +x spider.sh
+
+3、添加开机启动系统脚本权限
+chmod +x /etc/rc.d/rc.local
+
+4、在/etc/rc.d/rc.local的文件结尾添加
+/root/huangdong/code/exeSH/spider.sh
+
+
+
+实体机运行的脚本命令
+python36 spider_schedule.py
+
+
