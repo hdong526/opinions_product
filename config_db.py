@@ -1,10 +1,10 @@
 
-
 REDIS_HOST = '192.168.50.2'
 #REDIS_HOST = '127.0.0.1'
 REDIS_PORT = 6379
 #REDIS_DB = 11
 REDIS_DB = 12
+REDIS_KEYWEBSITE = 14
 
 
 # # 测试环境oracle连接信息
@@ -36,6 +36,7 @@ ORACLE_TABLE_DOMAIN = 'yuqing_domain'
 
 # 搜索任务表
 REDIS_KEY_TASKS = 'yuqing_baidu_tasks'
+REDIS_KEY_TASKS_KEYWEBSITE = 'yuqing_keywebsite_tasks'
 
 # 详情页信息表
 REDIS_KEY_DETAIL = 'yuqing_detail_page'

@@ -6,9 +6,24 @@ from config_db import *
 from config_spider import *
 
 class CreateTasks(object):
-    def __init__(self):
+    def __init__(self,redisHost=REDIS_HOST, redisPort=REDIS_PORT, redisDB=REDIS_DB):
         self.db_orcl = db_oracle_opt.OracleEngine()
-        self.db_redis = db_redis.RedisQueue()
+        self.db_redis = db_redis.RedisQueue(redisHost, redisPort, redisDB)
+
+    def create_keyWebsite_Tasks(self):
+        self.db_redis.delete(REDIS_KEY_TASKS_KEYWEBSITE)
+        df_ent = self.db_orcl.select_table(ORACLE_TABLE_ENTOUTED, '')
+        # list_g = list(df_ent['ENTNAME_GLLZD'])
+        # list_e = list(df_ent['ENAME'])
+        # list_b= list(df_ent['NAME_BEFORE'])
+        # list_enterprise = list(set(list_g + list_e + list_b))
+        list_e = list(df_ent['ENAME'])
+        list_ent = list(df_ent['ENTNAME'])
+        list_g = list(df_ent['ENTNAME_GLLZD'])
+        list_b = list(df_ent['NAME_BEFORE'])
+        list_enterprise = list(set(list_g + list_e + list_b + list_ent))#[50:]
+        # print(list_enterprise)
+        print(len(list_enterprise), '企业数')
 
     def createSearchTasks(self):
         self.db_redis.delete(REDIS_KEY_TASKS)
@@ -22,7 +37,7 @@ class CreateTasks(object):
         list_ent = list(df_ent['ENTNAME'])
         list_g = list(df_ent['ENTNAME_GLLZD'])
         list_b = list(df_ent['NAME_BEFORE'])
-        list_enterprise = list(set(list_g + list_e + list_b + list_ent))[50:]
+        list_enterprise = list(set(list_g + list_e + list_b + list_ent))#[50:]
         #print(list_enterprise)
         print(len(list_enterprise), '企业数')
 
@@ -97,8 +112,10 @@ class CreateTasks(object):
 
 
 if __name__ == '__main__':
-    c = CreateTasks()
-    c.createSearchTasks()
+    # c = CreateTasks()
+    # c.createSearchTasks()
+    c = CreateTasks(redisDB=REDIS_KEYWEBSITE)
+    c.create_keyWebsite_Tasks()
     #c.createTestTasks()
 
     #c.insertDomain()
