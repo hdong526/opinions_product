@@ -25,6 +25,19 @@ class CreateTasks(object):
         # print(list_enterprise)
         print(len(list_enterprise), '企业数')
 
+        str_sql = 'select domain,domain_name from yuqing_domain where c0003=1'
+        df_domain = self.db_orcl.get_DataFrame(str_sql)
+        dictdomain = df_domain.set_index('DOMAIN')['DOMAIN_NAME'].to_dict()
+        print(dictdomain)
+
+        for domain in dictdomain:
+            for ename in list_enterprise:
+                if ename.strip():
+                    task = ename.strip() + SPLIT_SYMBOL + domain + SPLIT_SYMBOL + dictdomain[domain]
+                    self.db_redis.tasks_add(REDIS_KEY_TASKS, task)
+
+
+
     def createSearchTasks(self):
         self.db_redis.delete(REDIS_KEY_TASKS)
 
