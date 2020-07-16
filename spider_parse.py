@@ -55,7 +55,7 @@ class Parse(object):
                 # }
                 #if '香港' in title:
                 # str_info = detail_url + SPLIT_SYMBOL + qymc + SPLIT_SYMBOL + domain + SPLIT_SYMBOL + str_time
-                str_info = SPLIT_SYMBOL.join([detail_url,qymc,domain,str_time,str_spider_time])
+                str_info = SPLIT_SYMBOL.join([detail_url,qymc,domain,str_time,str_spider_time,'百度搜索'])
                 print(title,str_time,str_word,qymc)
                 r_db.tasks_add(REDIS_KEY_DETAIL, str_info)
 

@@ -95,6 +95,7 @@ class Download(object):
                     domain = list_info[2]
                     btime =  list_info[3]
                     spider_listpage_time = list_info[4]
+                    search_type = list_info[5]
                     try:
                         resp = requests.get(long_url, headers=HEADERS_COMMON, timeout=LIMIT_TIMEOUT)
                         url = resp.url
@@ -108,7 +109,9 @@ class Download(object):
                                 'ename': qymc,
                                 'btime': btime,
                                 'c0001': spider_listpage_time,
+                                'c0002': search_type,
                             }
+
                             # title, sctime, content = self.html_parse.parse_detail_content(
                             #     resp.text
                             # )

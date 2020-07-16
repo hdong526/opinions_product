@@ -1,3 +1,5 @@
+import pandas as pd
+
 from db_oracle import OracleBase
 
 from config_db import *
@@ -74,13 +76,38 @@ class OracleEngine(OracleBase):
 
 if __name__ == '__main__':
     #db = OracleEngine('h_dong', 'h_dong', '192.168.1.107:1521/orcl')
+    #print('复')
     db = OracleEngine()
-    df = db.select_table('yuqing_domain', 'flag=1')[['DOMAIN', 'DOMAIN_NAME']]
-    domain = df.set_index('DOMAIN')['DOMAIN_NAME'].to_dict()
-    # print(list(df['DOMAIN']))
-    df2 = db.select_table('yuqing_domain', '')[['DOMAIN', 'DOMAIN_NAME']]
-    domain_2 = df2.set_index('DOMAIN')['DOMAIN_NAME'].to_dict()
-    print(domain_2, len(domain_2))
+    df = db.select_table('ls_data.ls_yuqing_news_bj', 'sid=126212')
+    #df = db.select_table('ls_data.ls_yuqing_news_bj', 'sid=100000')
+    #df['CONTENT'] = df['CONTENT'].str.replace('我们', ' ')
+    content = str(df['CONTENT'][0])
+    #print(content)
+    print(len(df['CONTENT']))
+    #df[['SID','UUID','URL','TITLE','CTIME','DOMAIN','WORDS','ENAME','GTIME','SEARCH_ENAME']].to_excel('22.xlsx')
+
+    df[['CONTENT']].to_excel(
+        '22.xlsx')
+    with open('1.txt', 'w') as f:
+        f.write(content.replace('&nbsp;', ''))
+    content = content.replace('=', '')#[0:3]
+    print(content)
+    print(len(content))
+    list_a = [
+        {'a':content}
+    ]
+    df = pd.DataFrame(list_a)
+
+    df.to_excel('33.xlsx')
+    # df = db.select_table('yuqing_domain', 'flag=1')[['DOMAIN', 'DOMAIN_NAME']]
+    # domain = df.set_index('DOMAIN')['DOMAIN_NAME'].to_dict()
+    # # print(list(df['DOMAIN']))
+    # df2 = db.select_table('yuqing_domain', '')[['DOMAIN', 'DOMAIN_NAME']]
+    # domain_2 = df2.set_index('DOMAIN')['DOMAIN_NAME'].to_dict()
+    # print(domain_2, len(domain_2))
+
+
+
     # db.update_table('yuqing_domain',
     #     **{
     #         'flag':'asd',

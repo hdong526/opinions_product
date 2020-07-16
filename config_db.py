@@ -44,6 +44,9 @@ REDIS_KEY_DETAIL = 'yuqing_detail_page'
 # 百度其他页信息表
 REDIS_KEY_BAIDU_OTHER = 'yuqing_baidu_otherpage'
 
+# 站内搜索其他页
+REDIS_KEY_KEYWEBSITE_OTHERLISTPAGE = 'yuqing_keywebsite_otherpage'
+
 # 去重库
 #REDIS_KEY_DETAIL_URLS = 'yuqing_detail_urls'
 REDIS_KEY_DETAIL_URLS = 'yuqing_detail_urls_bj'
