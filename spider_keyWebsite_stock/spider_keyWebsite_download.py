@@ -32,10 +32,11 @@ class Download(object):
                 bool_first = False
             else:
                 pass
-
+            print(url, domain, s_word, '###############')
             resp = requests.get(url, headers=KEYWEBSITE_HEADER[domain])
             cs = chardet.detect(resp.content)
             resp.encoding = cs['encoding']
+            #print(resp.text)
             self.parse.parse_listpage(resp.text, domain, self.dbRedis_task, self.dbRedis_duplicate, s_word, bool_first)
 
         except Exception as e:

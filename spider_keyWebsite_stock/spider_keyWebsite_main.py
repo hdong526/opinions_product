@@ -3,11 +3,37 @@ sys.path.append("..")
 import getopt
 import warnings
 import datetime
+import time
 
 import spider_createTasks
-from config_db import *
 import spider_keyWebsite_stock.spider_keyWebsite_thread as spider_keyWebsite_thread
 
+import db_redis
+import db_oracle_opt
+from config_db import *
+import spider_keyWebsite_stock.spider_keyWebsite_download as spider_keyWebsite_download
+
+
+def main_onethreads(bool_add):
+    dbRedis_duplicate = db_redis.RedisQueue(redisDB=REDIS_DB)  # 去重库
+    dbRedis = db_redis.RedisQueue(redisDB=REDIS_KEYWEBSITE)  # 重点网站任务库
+    download = spider_keyWebsite_download.Download(dbRedis, dbRedis_duplicate, bool_add)
+    while 1:
+        bool_task1 = dbRedis.tasks_empty(REDIS_KEY_TASKS_KEYWEBSITE)
+        bool_task2 = dbRedis.tasks_empty(REDIS_KEY_KEYWEBSITE_OTHERLISTPAGE)
+
+        if not bool_task1:
+            task = dbRedis.tasks_pop(REDIS_KEY_TASKS_KEYWEBSITE)
+            if task:
+                download.download(task, 'first')
+                # print(task, 11111)
+        elif not bool_task2:
+            task = dbRedis.tasks_pop(REDIS_KEY_KEYWEBSITE_OTHERLISTPAGE)
+            if task:
+                download.download(task, 'other')
+        else:
+            break
+        time.sleep(1)
 
 def main_threads(bool_add):
     list_thread_1 = [spider_keyWebsite_thread.ThreadSpider(bool_add) for i in range(8)]
@@ -34,10 +60,11 @@ def main_spider():
         except getopt.GetoptError:
             print('位置参数错误')
 
-    c = spider_createTasks.CreateTasks(redisDB=REDIS_KEYWEBSITE)
-    c.create_keyWebsite_Tasks()
+    # c = spider_createTasks.CreateTasks(redisDB=REDIS_KEYWEBSITE)
+    # c.create_keyWebsite_Tasks()
 
-    main_threads(bool_add)
+    #main_threads(bool_add)
+    main_onethreads(bool_add)
 
 
     end = datetime.datetime.now()
