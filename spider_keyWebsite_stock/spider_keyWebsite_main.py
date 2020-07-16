@@ -60,8 +60,8 @@ def main_spider():
         except getopt.GetoptError:
             print('位置参数错误')
 
-    # c = spider_createTasks.CreateTasks(redisDB=REDIS_KEYWEBSITE)
-    # c.create_keyWebsite_Tasks()
+    c = spider_createTasks.CreateTasks(redisDB=REDIS_KEYWEBSITE)
+    c.create_keyWebsite_Tasks()
 
     #main_threads(bool_add)
     main_onethreads(bool_add)
