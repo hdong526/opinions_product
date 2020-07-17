@@ -24,7 +24,7 @@ class OracleEngine(OracleBase):
                 table,
                 str_update
             )
-        print(str_sql)
+        #print(str_sql)
         self.opt_sql(str_sql, list(kwargs.values()))
 
 

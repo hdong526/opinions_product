@@ -4,6 +4,7 @@ import getopt
 import warnings
 import datetime
 import time
+import pandas as pd
 
 import spider_createTasks
 import spider_keyWebsite_stock.spider_keyWebsite_thread as spider_keyWebsite_thread
@@ -11,6 +12,7 @@ import spider_keyWebsite_stock.spider_keyWebsite_thread as spider_keyWebsite_thr
 import db_redis
 import db_oracle_opt
 from config_db import *
+from config_spider import *
 import spider_keyWebsite_stock.spider_keyWebsite_download as spider_keyWebsite_download
 
 
@@ -71,5 +73,21 @@ def main_spider():
     print('结束时间{}'.format(end))
     print('耗时{}'.format(str(end - start)))
 
+def func_error_content(data, dbRedis):
+    url = data['URL']
+    str_info = SPLIT_SYMBOL.join([url, ' ', ' ', ' ', ' ', ERROE_CONTENT])
+    dbRedis.tasks_add(REDIS_KEY_DETAIL, str_info)
+
+## 检测新浪封IP导致采集详情页错误
+def opt_error_content():
+    dbOracle = db_oracle_opt.OracleEngine()
+    dbRedis = db_redis.RedisQueue(redisDB=REDIS_DB)
+    str_sql = "select url from yuqing_ls_news_bj where domain='sina.com.cn' and instr(content, '拒绝访问')>0"
+    df = dbOracle.get_DataFrame(str_sql)
+    df.apply(func_error_content, axis=1, args=(dbRedis, ))
+    #dbOracle.
+    #str_info = SPLIT_SYMBOL.join([url, ' ', ' ', ' ', ' ', '站内搜索'])
+
 if __name__ == '__main__':
-    main_spider()
+    #main_spider()
+    opt_error_content()

@@ -6,6 +6,7 @@ NUM_THREAD = 8
 SPLIT_SYMBOL = '@@@@'
 LIMIT_DATE = datetime.datetime.strptime('2017-01-01','%Y-%m-%d')
 LIMIT_TIMEOUT = 15
+ERROE_CONTENT = '详情页错误'
 
 HEADERS_BAIDU = {
     'Host':'www.baidu.com',

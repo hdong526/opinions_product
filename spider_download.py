@@ -89,7 +89,8 @@ class Download(object):
                         self.dbRedis.tasks_add(REDIS_KEY_BAIDU_OTHER, list_info)
                 elif task_type == 'detail_content':
                     #http://www.baidu.com/link?url=ZFo---P_siV1CZ6GgMCNF-JoZ1kwca-z-47XbRapCoaF5OiAmhC4Nk3CGXDHHlnib-klhD2gQ9p2mGeAcoqHqo1W1fmoD99T98G6kupPQW-V-1a1v8K1q7kumtypHIli@@@@北京眼神科技有限公司@@@@sina.com.cn
-                    #print(list_info)
+                    print(list_info, '&&&&&&&')
+
                     long_url = list_info[0]
                     qymc = list_info[1]
                     domain = list_info[2]
@@ -99,35 +100,50 @@ class Download(object):
                     try:
                         resp = requests.get(long_url, headers=HEADERS_COMMON, timeout=LIMIT_TIMEOUT)
                         url = resp.url
-                        if not self.dbRedis.duplicate_exit(REDIS_KEY_DETAIL_URLS, url):
-                            cs = chardet.detect(resp.content)
-                            resp.encoding = cs['encoding']
-                            dict_info = {
-                                'url': url,
-                                'content': resp.text,
-                                'domain': domain,
-                                'ename': qymc,
-                                'btime': btime,
-                                'c0001': spider_listpage_time,
-                                'c0002': search_type,
-                            }
-
-                            # title, sctime, content = self.html_parse.parse_detail_content(
-                            #     resp.text
-                            # )
-                            # dict_info = {
-                            #     'url': url,
-                            #     'title': title,
-                            #     'content': content,
-                            #     'ctime': sctime,
-                            #     'domain': domain,
-                            #     'ename': qymc,
-                            #     'btime': btime,
-                            #     'c0001': spider_listpage_time,
-                            # }
+                        cs = chardet.detect(resp.content)
+                        resp.encoding = cs['encoding']
+                        #print(search_type, '%%%%%%%%%%%%')
+                        if search_type == ERROE_CONTENT:
+                            #print('uuuuuuuuuuuuuuuuuuuuuuuuuuu')
+                            str_sql = '''update  {} set content=:1,c0007=null where url=:2'''.format(
+                                ORACLE_TABLE_NEWS
+                            )
+                            self.dbOracle.opt_sql(str_sql, [resp.text, url])
+                            # self.dbOracle.update_table(
+                            #     ORACLE_TABLE_NEWS,
+                            #     "url='{}'".format(url),
+                            #     **{'content': resp.text,'c0007':null})
+                        else:
                             if not self.dbRedis.duplicate_exit(REDIS_KEY_DETAIL_URLS, url):
-                                self.dbOracle.insert_one_data(ORACLE_TABLE_NEWS, **dict_info)
-                                self.dbRedis.duplicate_add(REDIS_KEY_DETAIL_URLS, url)
+
+                                dict_info = {
+                                    'url': url,
+                                    'content': resp.text,
+                                    'domain': domain,
+                                    'ename': qymc,
+                                    'btime': btime,
+                                    'c0001': spider_listpage_time,
+                                    'c0002': search_type,
+                                }
+                                #print(resp.text)
+                                #print(dict_info)
+                                # title, sctime, content = self.html_parse.parse_detail_content(
+                                #     resp.text
+                                # )
+                                # dict_info = {
+                                #     'url': url,
+                                #     'title': title,
+                                #     'content': content,
+                                #     'ctime': sctime,
+                                #     'domain': domain,
+                                #     'ename': qymc,
+                                #     'btime': btime,
+                                #     'c0001': spider_listpage_time,
+                                # }
+
+                                if not self.dbRedis.duplicate_exit(REDIS_KEY_DETAIL_URLS, url):
+                                    self.dbOracle.insert_one_data(ORACLE_TABLE_NEWS, **dict_info)
+                                    self.dbRedis.duplicate_add(REDIS_KEY_DETAIL_URLS, url)
 
                     except (ConnectionError, ReadTimeout) as e:
                         #pass
