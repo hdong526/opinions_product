@@ -50,17 +50,18 @@ class ParseKeyWebsite(object):
                 page_info = ''.join(page_info)
                 page_info = int(re.search(dict_xpaths['pages_re'], page_info).group(1))
                 print(page_info)
-                pages = int(page_info/dict_xpaths['page_num'])+1 if page_info%dict_xpaths['page_num'] else page_info/dict_xpaths['page_num']
-                # if domain == 'sina.com.cn' and pages > 39:
-                #     pages = 39
-                if domain == 'sina.com.cn' and pages > 10:
-                    pages = 10
+                if int(page_info) > 1:
+                    pages = int(page_info/dict_xpaths['page_num'])+1 if page_info%dict_xpaths['page_num'] else page_info/dict_xpaths['page_num']
+                    # if domain == 'sina.com.cn' and pages > 39:
+                    #     pages = 39
+                    if domain == 'sina.com.cn' and pages > 10:
+                        pages = 10
 
-                for page_num in range(2, pages + 1):
-                    listpage_url = KEYWEBSITE_ENTER_URLS[domain]['other_url'].format(search_word, page_num)
-                    list_info = SPLIT_SYMBOL.join([listpage_url, search_word, domain, '站内搜索'])
-                    dbRedis_task.tasks_add(REDIS_KEY_KEYWEBSITE_OTHERLISTPAGE, list_info)
-                print(pages)
+                    for page_num in range(2, pages + 1):
+                        listpage_url = KEYWEBSITE_ENTER_URLS[domain]['other_url'].format(search_word, page_num)
+                        list_info = SPLIT_SYMBOL.join([listpage_url, search_word, domain, '站内搜索'])
+                        dbRedis_task.tasks_add(REDIS_KEY_KEYWEBSITE_OTHERLISTPAGE, list_info)
+                    print(pages)
         except Exception as e:
             print(str(e),'parseerrorparseerrorparseerrorparseerrorparseerror')
             print(search_word, 'yyyyyyy')
