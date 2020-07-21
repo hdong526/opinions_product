@@ -1,4 +1,5 @@
 import chardet
+import time
 from urllib import parse
 
 import requests
@@ -104,6 +105,7 @@ class Download(object):
                         resp.encoding = cs['encoding']
                         #print(search_type, '%%%%%%%%%%%%')
                         if search_type == ERROE_CONTENT:
+                            time.sleep(3)
                             #print('uuuuuuuuuuuuuuuuuuuuuuuuuuu')
                             str_sql = '''update  {} set content=:1,c0007=null where url=:2'''.format(
                                 ORACLE_TABLE_NEWS

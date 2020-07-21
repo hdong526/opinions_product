@@ -24,7 +24,7 @@ class ThreadSpider(Thread):
                     bool_taskType1 = True
                     bool_taskType2 = True
                     if bool_taskType3:
-                        time.sleep(600)
+                        time.sleep(300)
                         continue
                 else:
                     bool_taskType1 = self.dbRedis.tasks_empty(REDIS_KEY_TASKS)

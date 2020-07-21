@@ -80,6 +80,7 @@ def func_error_content(data, dbRedis):
 
 ## 检测新浪封IP导致采集详情页错误
 def opt_error_content():
+    # 检查新浪被封的select count(*) from yuqing_ls_news_bj where domain='sina.com.cn' and instr(content, '拒绝访问')>0
     dbOracle = db_oracle_opt.OracleEngine()
     dbRedis = db_redis.RedisQueue(redisDB=REDIS_DB)
     str_sql = "select url from yuqing_ls_news_bj where domain='sina.com.cn' and instr(content, '拒绝访问')>0"
