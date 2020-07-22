@@ -82,12 +82,12 @@ class CreateTasks(object):
         print('word', len(list_words))
         print('dictdomain_2', len(dictdomain_2))
 
-        for domain in dictdomain:
-            for ename in list_enterprise:
-                for word in list_words:
-                    if ename.strip():
-                        task = ename.strip() + ' ' + word.strip() + SPLIT_SYMBOL + domain + SPLIT_SYMBOL + dictdomain[domain]
-                        self.db_redis.tasks_add(REDIS_KEY_TASKS, task)
+        # for domain in dictdomain:
+        #     for ename in list_enterprise:
+        #         for word in list_words:
+        #             if ename.strip():
+        #                 task = ename.strip() + ' ' + word.strip() + SPLIT_SYMBOL + domain + SPLIT_SYMBOL + dictdomain[domain]
+        #                 self.db_redis.tasks_add(REDIS_KEY_TASKS, task)
 
         # for ename in list_enterprise:
         #     for word in list_words:
