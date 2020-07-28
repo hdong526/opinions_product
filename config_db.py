@@ -152,6 +152,13 @@ group by  to_char(gtime, 'YYYY-MM-DD')
 order by 天
 '''
 
+# 查询没有解析入库的sina新闻
+'''
+select uuid1,url1 from (select * from (select uuid as uuid1,url as url1 from (select * from yuqing_ls_news_bj where to_char(gtime, 'YYYY-MM-DD')='2020-07-21' and url like '%sina.com%')) t2  left join 
+(select * from (select * from ls_data.ls_yuqing_news_bj where to_char(gtime, 'YYYY-MM-DD')='2020-07-22' and url like '%sina.com%')) t1 on t1.uuid=t2.uuid1) t3 where t3.sid is null
+
+'''
+
 DICTDOMAIN = {
 'sina.cn':'手机新浪网',
 'baidu.com':'百度',

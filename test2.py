@@ -16,9 +16,10 @@ from urllib import parse
 # 'Cookie': 'BIDUPSID=C620AAACFA1CEEF67A1B6E6F4DBBAB36; PSTM=1591774116; BAIDUID=C663CB5D40080C542C408ADB6F85239C:FG=1; BD_UPN=12314753; BDUSS=2dZZkw4eTlmRmhYNGkwS0lyekE2WUdXWG84UC1WT2Q2amNxbm9jdmZ4cmh-eE5mRVFBQUFBJCQAAAAAAAAAAAEAAAA3NPQPaGRvbmc1MjYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOFy7F7hcuxea; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; H_PS_PSSID=1466_31325_21083_32140_31254_32046_31848_22160; BDRCVFR[feWj1Vr5u3D]=mbxnW11j9Dfmh7GuZR8mvqV; delPer=0; BD_CK_SAM=1; PSINO=1; kleck=466b680c7797325cc3838bc9ec5a3748; H_PS_645EC=a286ytHBPeiBaO6ftUtTSz6%2BHiK6CAtY9cOKGjzzM44%2FkhbPCSVdKGK0S142wLZGMl1B; BDSVRTM=105',
 #
 # }
-s_word = '北京眼神科技有限公司 雄安'
+#s_word = '北京眼神科技有限公司 雄安'
 #s_word = '天津美杰姆教育科技有限公司'
 #s_word = '中海油'
+s_word = '国家开发银行'
 search_word = parse.quote(s_word)
 domain = 'sina.com.cn'
 #domain = 'eyecool.cn'
@@ -49,12 +50,17 @@ url = 'https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=ed1f0e1000122fc3&ie=ut
 #gpc=stf%3D1593156336%2C1593761136%7Cstftype%3D1
 # url = 'https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=ed1f0e1000122fc3&ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&rsv_pq=b3d3a5f6000c1e98&rsv_t=9d9aaIBWL7oiDuaCOGeHUtJmlDgv1r1QtzBMLbYGnOJ2W28JJeQ6naFPhqs&rqlang=cn&inputT=9924&si={}&ct=2097152&bs={}&gpc=stf%3D1593156336%2C1593761136%7Cstftype%3D1'.format(
 #     search_word, domain, search_word)
+# url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C&rsv_pq=b9ca3270000af527&rsv_t=d094LpNu%2Fd7x3Yeh3OC2SNfu%2FpYY7LMXRH0dkqepz4cShhhdvm2exoQPxN0&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&inputT=30342&gpc=stf%3D1595312152%2C1595916952%7Cstftype%3D1&tfflag=1&si={}&ct=2097152'.format(
+#     search_word, domain
+# )
 
 #搜索词一周内
 # url = 'https://www.baidu.com/s?ie=utf-8&newi=1&mod=1&isbd=1&isid=C663CB5239C33121&wd={}&rsv_spt=1&rsv_iqid=0xac699ad0000c4b6a&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_dl=ib&rsv_sug3=2&rsv_sid=1466_31325_21083_32140_31254_32046_31848_22160&_ss=1&clist=&hsug=&csor=13&pstg=2&_cr1=27662&gpc=stf%3D1593156336%2C1593761136%7Cstftype%3D1'.format(
 #     search_word
 # )
-
+url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C&rsv_pq=b9ca3270000af527&rsv_t=14baS1jRjujs%2FSra%2BPwhki%2BGKpROXBIVUk9r%2BArMh4M1xygHPFgI6XkkPQQ&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&inputT=30342&ct=0&gpc=stf%3D1595312152%2C1595916952%7Cstftype%3D1'.format(
+    search_word
+)
 
 # url = 'https://www.baidu.com/s?ie=utf-8&newi=1&mod=1&isbd=1&isid=C663CB5239C33121&wd={}&rsv_spt=1&rsv_iqid=0xac699ad0000c4b6a&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_dl=ib&rsv_sug3=2&rsv_sid=1466_31325_21083_32140_31254_32046_31848_22160&_ss=1&clist=&hsug=&csor=13&pstg=2&_cr1=27662'.format(
 #     search_word
