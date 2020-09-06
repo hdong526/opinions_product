@@ -41,7 +41,7 @@ HEADERS_BAIDU = {
     #'Cookie':  'BAIDUID=C663CB5D40080C542C408ADB6F85239C:FG=1;BDUSS=2dZZkw4eTlmRmhYNGkwS0lyekE2WUdXWG84UC1WT2Q2amNxbm9jdmZ4cmh-eE5mRVFBQUFBJCQAAAAAAAAAAAEAAAA3NPQPaGRvbmc1MjYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOFy7F7hcuxea;',
     #'Cookie':  'BAIDUID=C663CB5D40080C542C408ADB6F85239C:FG=1;BDUSS=2dZZkw4eTlmRmhYNGkwS0lyekE2WUdXWG84UC1WT2Q2amNxbm9jdmZ4cmh-eE5mRVFBQUFBJCQAAAAAAAAAAAEAAAA3NPQPaGRvbmc1MjYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOFy7F7hcuxea;',
     #'Cookie':'BAIDUID=C663CB5D40080C542C408ADB6F85239C:FG=1;',
-    'Cookie': 'BAIDUID=DF4B75A0D6FFD251249A178292D2C585:FG=1;',
+    #'Cookie': 'BAIDUID=DF4B75A0D6FFD251249A178292D2C585:FG=1;',
 
 }
 
@@ -49,7 +49,7 @@ HEADERS_BAIDU = {
 #     search_word, domain, search_word)
 
 #域名加搜索词一周内
-url = 'https://www.baidu.com/s?wd={}&pn=0&oq=%E5%9B%BD%E5%AE%B6%E5%BC%80%E5%8F%91%E9%93%B6%E8%A1%8C%20%E6%8A%95%E8%B5%84&ct=2097152&tn=baiduhome_pg&ie=utf-8&si={}&rsv_idx=2&rsv_pq=befe7a6400238914&rsv_t=16c5513PlCV9OzDCvzFcAQjWnE7GBGU4OSku%2Fq9EJT1VdqME8auMVlREezAC%2FdFR4UOM&gpc=stf%3D1598580555%2C1599185355%7Cstftype%3D1'.format(
+url = 'https://www.baidu.com/s?wd={}&rsv_spt=1&rsv_iqid=0xce262f3800010885&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=0&rsv_dl=tb&rsv_btype=i&inputT=2130&rsv_t=e058S1caa6bsecgPSRABEIV1aoxe6iL7EQlqFGyDsIK%2BbD82d8E8NqjH%2F5uVF4dVHILE&si={}&ct=2097152&gpc=stf%3D1598773842%2C1599378642%7Cstftype%3D1'.format(
     search_word, domain
 )
 # url = 'https://www.baidu.com/s?wd={}&rsv_spt=1&rsv_iqid=0xc09830e90000b81e&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=1&rsv_dl=tb&rsv_btype=i&inputT=7910&rsv_t=4612YzcG%2B2IsMmWGZ20OOc9y40N8Y7RlBs%2FamcwYKc6DPHyRmyfNvc3af1lo6zhM1Vyp&si={}&ct=2097152&gpc=stf%3D1597913951%2C1598518751%7Cstftype%3D1'.format(
@@ -58,7 +58,7 @@ url = 'https://www.baidu.com/s?wd={}&pn=0&oq=%E5%9B%BD%E5%AE%B6%E5%BC%80%E5%8F%9
 
 
 #搜索词一周内
-url = 'https://www.baidu.com/s?wd={}&rsv_spt=1&rsv_iqid=0xb2fa59a8004c2de4&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=0&rsv_dl=tb&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C%2520%25E6%258A%2595%25E8%25B5%2584&rsv_btype=t&rsv_t=25e3KOporDZhGDX0Z%2BeDBpy1flcdbTisMGAG4D0JIyA48BYl6Yj10bbZLSp6F8edGNXZ&rsv_pq=9c9c383700202b6d&gpc=stf%3D1598580775%2C1599185575%7Cstftype%3D1&tfflag=1'.format(
+url = 'https://www.baidu.com/s?wd={}&rsv_spt=1&rsv_iqid=0xce262f3800010885&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=0&rsv_dl=tb&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C%2520%25E6%258A%2595%25E8%25B5%2584&rsv_btype=t&rsv_t=c7c38rHECkEtk03IGExlTCkJGpxOt64R7m4Bd0k5wk%2FtgTbhEfXvbnfrP4jN3yWaYNet&rsv_pq=bc51bf5f000162b5&gpc=stf%3D1598774008%2C1599378808%7Cstftype%3D1&tfflag=1'.format(
     search_word
 )
 # url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C&rsv_pq=b9ca3270000af527&rsv_t=14baS1jRjujs%2FSra%2BPwhki%2BGKpROXBIVUk9r%2BArMh4M1xygHPFgI6XkkPQQ&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&inputT=30342&ct=0&gpc=stf%3D1595312152%2C1595916952%7Cstftype%3D1'.format(
