@@ -36,8 +36,8 @@ def job_spider_error_opt_task():
 
 
 def run():
-    schedule.every().day.at("14:30").do(job_spider_task)
-    schedule.every().day.at("06:30").do(job_spider_task)
+    schedule.every().day.at("11:05").do(job_spider_task)
+    #schedule.every().day.at("06:30").do(job_spider_task)
     schedule.every().day.at("16:20").do(job_spider_keywebsite_task)
     schedule.every().day.at("17:30").do(job_spider_error_opt_task)
     while True:
