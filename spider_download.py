@@ -39,7 +39,7 @@ class Download(object):
                             # url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C&rsv_pq=b9ca3270000af527&rsv_t=d094LpNu%2Fd7x3Yeh3OC2SNfu%2FpYY7LMXRH0dkqepz4cShhhdvm2exoQPxN0&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&inputT=30342&gpc=stf%3D1595312152%2C1595916952%7Cstftype%3D1&tfflag=1&si={}&ct=2097152'.format(
                             #     search_word, domain
                             # )
-                            url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn=baidutop10&wd={}&oq=%25E9%259D%2592%25E5%25B2%259B%25E6%2596%25B0%25E5%25A2%259E9%25E4%25BE%258B%25E6%25A0%25B8%25E9%2585%25B8%25E6%25A3%2580%25E6%25B5%258B%25E9%2598%25B3%25E6%2580%25A7%25E7%2597%2585%25E4%25BE%258B&rsv_pq=8d9732020001f2fe&rsv_t=3b0bw1IvglswwmR3KNwvkXlhkeXjhWjpqeBKECpPrhda7OUkP3jP11o%2FSptFTbF5jA&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_btype=t&inputT=580&si={}&ct=2097152&gpc=stf%3D1601861818%2C1602466618%7Cstftype%3D1'.format(
+                            url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&rsv_pq=9135ab2f00165250&rsv_t=0682Y5XyNY%2FflwoB4N9rbqucaPEz55K9lV2Z5Qa96vfjdiNE9QNoxU9FKOg&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_btype=i&inputT=1138&si={}&ct=2097152&gpc=stf%3D1602997824%2C1603602624%7Cstftype%3D1'.format(
                                 search_word, domain
                             )
                         else:
@@ -49,7 +49,7 @@ class Download(object):
                             # url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C&rsv_pq=b9ca3270000af527&rsv_t=14baS1jRjujs%2FSra%2BPwhki%2BGKpROXBIVUk9r%2BArMh4M1xygHPFgI6XkkPQQ&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&inputT=30342&ct=0&gpc=stf%3D1595312152%2C1595916952%7Cstftype%3D1'.format(
                             #     search_word
                             # )
-                            url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=2&tn=baidutop10&wd={}&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C%2520%25E6%258A%2595%25E8%25B5%2584&rsv_pq=cb093316000399a8&rsv_t=7602eV3NeR9uZk0u6y5RsC9DStpdGuJ9XDxFZxrRNU4XKXovaZ67NZ8aVir%2BLLynZw&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&gpc=stf%3D1601861939%2C1602466739%7Cstftype%3D1&tfflag=1'.format(
+                            url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C%2520%25E6%258A%2595%25E8%25B5%2584&rsv_pq=d16c5806000a6705&rsv_t=8cb6plurkHUcm83Caa2i0oS7WZfvN1kCyc8YMrnzL8iETMGRechFl%2FTzhsw&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&gpc=stf%3D1602998018%2C1603602818%7Cstftype%3D1&tfflag=1'.format(
                                 search_word
                             )
                     else:
