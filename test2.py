@@ -49,7 +49,7 @@ HEADERS_BAIDU = {
 #     search_word, domain, search_word)
 
 #域名加搜索词一周内
-url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&rsv_pq=ea871e2e00250b82&rsv_t=6939XC6l7%2BQrdRRDAYTtVjnlt0sW%2B3AghFJfKcWK1j2NdVgtxJhxsM5BQEg&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_btype=i&inputT=880&si={}&ct=2097152&gpc=stf%3D1610069949%2C1610674749%7Cstftype%3D1'.format(
+url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&rsv_pq=a0dbf9a50084394b&rsv_t=d56cOy5hF0aPnkSY3CjC%2BQMa4O9m2aRFU897qWgl6XzhYqtxh3P2odL%2BBGw&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=i&inputT=1313&si={}&ct=2097152&gpc=stf%3D1610329351%2C1610934151%7Cstftype%3D1'.format(
     search_word, domain
 )
 # url = 'https://www.baidu.com/s?wd={}&rsv_spt=1&rsv_iqid=0xc09830e90000b81e&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=1&rsv_dl=tb&rsv_btype=i&inputT=7910&rsv_t=4612YzcG%2B2IsMmWGZ20OOc9y40N8Y7RlBs%2FamcwYKc6DPHyRmyfNvc3af1lo6zhM1Vyp&si={}&ct=2097152&gpc=stf%3D1597913951%2C1598518751%7Cstftype%3D1'.format(
@@ -58,7 +58,7 @@ url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fe
 
 
 #搜索词一周内
-url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C%2520%25E6%258A%2595%25E8%25B5%2584&rsv_pq=9fb25bc00026155c&rsv_t=29937TTAkfFhRrsjrdBFq605jx6OdpogKK6JIcrtnnaRqn%2BaQ5dhR2nX0qo&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&gpc=stf%3D1610070041%2C1610674841%7Cstftype%3D1&tfflag=1'.format(
+url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C%2520%25E6%258A%2595%25E8%25B5%2584&rsv_pq=c344acc0008c21b2&rsv_t=1bb2y%2BSBngMk5XbVEnZgGORnAoS%2BdxDEnZLAR5%2BcPC9xDG6Yt8fDhmhsfsM&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&gpc=stf%3D1610329516%2C1610934316%7Cstftype%3D1&tfflag=1'.format(
     search_word
 )
 # url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C&rsv_pq=b9ca3270000af527&rsv_t=14baS1jRjujs%2FSra%2BPwhki%2BGKpROXBIVUk9r%2BArMh4M1xygHPFgI6XkkPQQ&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&inputT=30342&ct=0&gpc=stf%3D1595312152%2C1595916952%7Cstftype%3D1'.format(
