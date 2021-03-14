@@ -149,7 +149,7 @@ create unique index index_yuqing_uuid on yuqing_ls_news(uuid)
 select to_char(gtime, 'YYYY-MM-DD') as 天,sum(1) as 数量 from 
 (select * from (select gtime,row_number() over(partition by url order by gtime) rn from yuqing_ls_news_bj)  where rn =1)
 group by  to_char(gtime, 'YYYY-MM-DD')
-order by 天 desc
+order by 天 desc 
 '''
 
 # 查询没有解析入库的sina新闻
