@@ -42,6 +42,7 @@ HEADERS_BAIDU = {
     #'Cookie':  'BAIDUID=C663CB5D40080C542C408ADB6F85239C:FG=1;BDUSS=2dZZkw4eTlmRmhYNGkwS0lyekE2WUdXWG84UC1WT2Q2amNxbm9jdmZ4cmh-eE5mRVFBQUFBJCQAAAAAAAAAAAEAAAA3NPQPaGRvbmc1MjYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOFy7F7hcuxea;',
     'Cookie':'BAIDUID=C663CB5D40080C542C408ADB6F85239C:FG=1;',
     #'Cookie': 'BAIDUID=91917590363D929329FD2B0F652E6DFC:FG=1;',
+    #'Cookie': 'BAIDUID=3E41A997DE3DB67EE165C4847B84C80D:FG=1;',
 
 }
 
@@ -61,21 +62,26 @@ url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}%20
 url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}%20%E6%8A%95%E8%B5%84&fenlei=256&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C%2520%25E6%258A%2595%25E8%25B5%2584&rsv_pq=dde530fe0007bb64&rsv_t=82a27ILnJHXYgWcgpxupVSWFHopV%2FeJ0mFG%2B28Qi26IAAdkDwKoidPIe4%2BY&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&gpc=stf%3D1614760871%2C1615365671%7Cstftype%3D1&tfflag=1'.format(
     search_word
 )
-# url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C&rsv_pq=b9ca3270000af527&rsv_t=14baS1jRjujs%2FSra%2BPwhki%2BGKpROXBIVUk9r%2BArMh4M1xygHPFgI6XkkPQQ&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&inputT=30342&ct=0&gpc=stf%3D1595312152%2C1595916952%7Cstftype%3D1'.format(
-#     search_word
-# )https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=%E5%9B%BD%E5%AE%B6%E5%BC%80%E5%8F%91%E9%93%B6%E8%A1%8C%20%E6%8A%95%E8%B5%84&fenlei=256&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C%2520%25E6%258A%2595%25E8%25B5%2584&rsv_pq=91ac49cd00000bf8&rsv_t=4625YhYQu65WfBWo%2FiFXyO2ju9ZW2ey2oZVzhAUW8%2FC2ngq%2B1iXAkuJNML0&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&gpc=stf%3D1606704178%2C1607308978%7Cstftype%3D1&tfflag=1
 
-# url = 'https://www.baidu.com/s?ie=utf-8&newi=1&mod=1&isbd=1&isid=C663CB5239C33121&wd={}&rsv_spt=1&rsv_iqid=0xac699ad0000c4b6a&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_dl=ib&rsv_sug3=2&rsv_sid=1466_31325_21083_32140_31254_32046_31848_22160&_ss=1&clist=&hsug=&csor=13&pstg=2&_cr1=27662'.format(
-#     search_word
-# )
-# url = 'https://www.baidu.com/s?wd={}&rsv_spt=1&rsv_iqid=0xc09830e90000b81e&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=0&rsv_dl=tb&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C%2520%25E6%258A%2595%25E8%25B5%2584&rsv_btype=t&rsv_t=3c33okVpodJ8cceBInyDWVnZGle2edNSsNI7uSvPTZ%2FHIJUJCM3bDKtjhxI2qtFLJLwH&rsv_pq=b5d1df8e00066b2e&gpc=stf%3D1597914632%2C1598519432%7Cstftype%3D1&tfflag=1'.format(
-#     search_word
-# )
+
+
+#域名加搜索词2018-01-01至今
+url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&rsv_pq=b3a63263000e48bf&rsv_t=1673rfWKnPjQ9z9jPg6anmhQ0buNP%2BKWZYX8ETsmNjx3RPpIn6JDcFM4dg8&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=i&inputT=105254&si={}&ct=2097152&gpc=stf%3D1514736000%2C1615824000%7Cstftype%3D2'.format(
+    search_word, domain
+)
+
+#搜索词不限时间域名2018-01-01至今
+url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd={}&fenlei=256&oq=%25E5%259B%25BD%25E5%25AE%25B6%25E5%25BC%2580%25E5%258F%2591%25E9%2593%25B6%25E8%25A1%258C%2520%25E6%258A%2595%25E8%25B5%2584&rsv_pq=81225dd90023099d&rsv_t=f64eXul%2BAm2cGPd2jqKjwXfn%2BbGPCI6H5U9tzrfSjVpyMEZwC2Af2XE%2FmgA&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&ct=0&gpc=stf%3D1514736000%2C1615910398%7Cstftype%3D2'.format(
+    search_word
+)
+
+
+
 print(url)
 #url = 'https://www.baidu.com/s?wd=%E5%8C%97%E4%BA%AC%E7%9C%BC%E7%A5%9E%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%20%E9%9B%84%E5%AE%89&pn=20&oq=%E5%8C%97%E4%BA%AC%E7%9C%BC%E7%A5%9E%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%20%E9%9B%84%E5%AE%89&ct=2097152&ie=utf-8&si=sina.com.cn'
 resp = requests.get(url, headers=HEADERS_BAIDU)
 resp.encoding = 'utf8'
-#print(resp.text)
+print(resp.text)
 select = etree.HTML(resp.text.replace('&nbsp;', ''))
 div_list = select.xpath('//div[@id="content_left"]/div')
 for each_div in div_list:
