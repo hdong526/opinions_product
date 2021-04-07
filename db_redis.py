@@ -31,6 +31,10 @@ class RedisQueue(object):
     def duplicate_query(self, key):
         return self.db.smembers(key)
 
+    # 查看set类型key的数据总量是多少
+    def duplicate_scard(self, key):
+        return self.db.scard(key)
+
     # 删除key,危险操作!
     def delete(self, key):
         self.db.delete(key)

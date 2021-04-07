@@ -3,10 +3,10 @@ REDIS_HOST = '192.168.50.2'
 #REDIS_HOST = '127.0.0.1'
 REDIS_PORT = 6379
 
-REDIS_DB = 12
-REDIS_KEYWEBSITE = 14
-# REDIS_DB = 9  #20210316
-# REDIS_KEYWEBSITE = 10 #20210316
+# REDIS_DB = 12
+# REDIS_KEYWEBSITE = 14
+REDIS_DB = 9  #20210316
+REDIS_KEYWEBSITE = 10 #20210316
 
 
 # # 测试环境oracle连接信息
@@ -20,15 +20,15 @@ ORACLE_PASSWORD = 'sjzy_dev'
 ORACLE_ADDR = '192.168.50.2:1521/orcl'
 
 # 已经迁出企业表
-#ORACLE_TABLE_ENTOUTED = 'yuqing_enterprise_outed'#20210316
+ORACLE_TABLE_ENTOUTED = 'yuqing_enterprise_outed'#20210316
 
-ORACLE_TABLE_ENTOUTED = 'yuqing_enterprise_bj'
+#ORACLE_TABLE_ENTOUTED = 'yuqing_enterprise_bj'
 # 关键词表
 ORACLE_TABLE_KEYWORDS = 'yuqing_keywords'
 # 存入新闻数据表
-# ORACLE_TABLE_NEWS = 'yuqing_ls_news'#20210316
+ORACLE_TABLE_NEWS = 'yuqing_ls_news'#20210316
 
-ORACLE_TABLE_NEWS = 'yuqing_ls_news_bj'
+#ORACLE_TABLE_NEWS = 'yuqing_ls_news_bj'
 
 # 域名表
 ORACLE_TABLE_DOMAIN = 'yuqing_domain'
