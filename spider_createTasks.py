@@ -47,6 +47,7 @@ class CreateTasks(object):
         # list_b= list(df_ent['NAME_BEFORE'])
         # list_enterprise = list(set(list_g + list_e + list_b))
         list_e = list(df_ent['ENAME'])
+        #list_ent = [] #2021-04-07
         list_ent = list(df_ent['ENTNAME'])
         list_g = list(df_ent['ENTNAME_GLLZD'])
         list_b = list(df_ent['NAME_BEFORE'])
@@ -131,4 +132,5 @@ if __name__ == '__main__':
     c.create_keyWebsite_Tasks()
     #c.createTestTasks()
 
-    #c.insertDomain()
+    #c.insertDomain()import pandas as pd
+
