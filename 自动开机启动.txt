@@ -32,3 +32,5 @@ chmod +x /etc/rc.d/rc.local
 实体机运行的脚本命令
 python36 spider_schedule.py
 
+uuuu
+
